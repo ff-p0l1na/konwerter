@@ -1,6 +1,8 @@
 import csv
 import json
 import pickle
+import sys
+
 
 class CsvHandler:
     def dump(self, data, file):
@@ -34,8 +36,8 @@ def get_filehandler(filename):
         raise NotImplementedError("Nieobsługiwane rozszerzenie.")
 
 
-input_file = input("Podaj nazwę pliku wejściowego: \n")
-output_file = input("Podaj nazwę pliku wyjściowego: \n")
+input_file = sys. argv[1]
+output_file = sys.argv[2]
 #
 input_encoding_type, input_handler_class = get_filehandler(input_file)
 with open(input_file, 'r' + input_encoding_type) as f:
